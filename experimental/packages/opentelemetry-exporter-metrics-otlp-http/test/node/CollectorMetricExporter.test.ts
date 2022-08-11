@@ -42,16 +42,9 @@ import {
   shutdown,
 } from '../metricsHelper';
 import { MockedResponse } from './nodeHelpers';
-import {
-  AggregationTemporality,
-  InstrumentType,
-  ResourceMetrics,
-} from '@opentelemetry/sdk-metrics';
-import { PassThrough, Stream } from 'stream';
-import {
-  OTLPExporterError,
-  OTLPExporterNodeConfigBase,
-} from '@opentelemetry/otlp-exporter-base';
+import { AggregationTemporality, ResourceMetrics } from '@opentelemetry/sdk-metrics';
+import { Stream, PassThrough } from 'stream';
+import { OTLPExporterError, OTLPExporterNodeConfigBase } from '@opentelemetry/otlp-exporter-base';
 import { IExportMetricsServiceRequest } from '@opentelemetry/otlp-transformer';
 import { VERSION } from '../../src/version';
 

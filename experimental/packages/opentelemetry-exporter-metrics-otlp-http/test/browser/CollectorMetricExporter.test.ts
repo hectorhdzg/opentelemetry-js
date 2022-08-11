@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-import {
-  diag,
-  DiagLogger,
-  DiagLogLevel,
-  Counter,
-  Histogram,
-} from '@opentelemetry/api';
-import { ExportResultCode } from '@opentelemetry/core';
-import { ResourceMetrics } from '@opentelemetry/sdk-metrics';
+import { diag, DiagLogger, DiagLogLevel } from '@opentelemetry/api';
+import { Counter, Histogram, } from '@opentelemetry/api-metrics';
+import { ExportResultCode, hrTimeToNanoseconds } from '@opentelemetry/core';
+import { AggregationTemporality, ResourceMetrics, } from '@opentelemetry/sdk-metrics';
 import * as assert from 'assert';
 import * as sinon from 'sinon';
 import { OTLPMetricExporter } from '../../src/platform/browser';

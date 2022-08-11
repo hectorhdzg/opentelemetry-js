@@ -36,8 +36,7 @@ import {
   Resource,
   ResourceDetectionConfig,
 } from '@opentelemetry/resources';
-import { LogRecordProcessor, LoggerProvider } from '@opentelemetry/sdk-logs';
-import { MeterProvider, MetricReader, View } from '@opentelemetry/sdk-metrics';
+import { MeterProvider, MetricReader } from '@opentelemetry/sdk-metrics';
 import {
   BatchSpanProcessor,
   SpanProcessor,

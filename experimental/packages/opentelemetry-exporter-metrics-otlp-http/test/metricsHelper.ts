@@ -31,7 +31,7 @@ import {
   ExplicitBucketHistogramAggregation,
   MeterProvider,
   MetricReader,
-  View,
+  View
 } from '@opentelemetry/sdk-metrics';
 import {
   encodeAsString,

@@ -35,13 +35,8 @@ import {
   setUp,
   shutdown,
 } from './metricsHelper';
-import { ResourceMetrics } from '@opentelemetry/sdk-metrics';
-import {
-  IExportMetricsServiceRequest,
-  IResourceMetrics,
-} from '@opentelemetry/otlp-transformer';
-import { VERSION } from '../src/version';
-import { AggregationTemporalityPreference } from '@opentelemetry/exporter-metrics-otlp-http';
+import { AggregationTemporality, ResourceMetrics } from '@opentelemetry/sdk-metrics';
+import { IExportMetricsServiceRequest, IResourceMetrics } from '@opentelemetry/otlp-transformer';
 
 const metricsServiceProtoPath =
   'opentelemetry/proto/collector/metrics/v1/metrics_service.proto';

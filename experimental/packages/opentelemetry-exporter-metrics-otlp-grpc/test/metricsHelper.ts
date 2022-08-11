@@ -32,12 +32,7 @@ import {
   MetricReader,
   View,
 } from '@opentelemetry/sdk-metrics';
-import {
-  encodeAsString,
-  IKeyValue,
-  IMetric,
-  IResource,
-} from '@opentelemetry/otlp-transformer';
+import { IKeyValue, IMetric, IResource } from '@opentelemetry/otlp-transformer';
 
 class TestMetricReader extends MetricReader {
   protected onForceFlush(): Promise<void> {

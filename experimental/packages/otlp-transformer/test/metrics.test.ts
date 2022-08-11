@@ -20,7 +20,7 @@ import {
   DataPointType,
   InstrumentType,
   MetricData,
-  ResourceMetrics,
+  ResourceMetrics
 } from '@opentelemetry/sdk-metrics';
 import * as assert from 'assert';
 import { createExportMetricsServiceRequest } from '../src/metrics';

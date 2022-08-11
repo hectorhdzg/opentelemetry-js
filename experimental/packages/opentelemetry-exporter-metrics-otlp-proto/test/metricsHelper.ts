@@ -28,14 +28,9 @@ import {
   ExplicitBucketHistogramAggregation,
   MeterProvider,
   MetricReader,
-  View,
+  View
 } from '@opentelemetry/sdk-metrics';
-import {
-  encodeAsString,
-  IExportMetricsServiceRequest,
-  IKeyValue,
-  IMetric,
-} from '@opentelemetry/otlp-transformer';
+import { IExportMetricsServiceRequest, IKeyValue, IMetric } from '@opentelemetry/otlp-transformer';
 import { Stream } from 'stream';
 
 export class TestMetricReader extends MetricReader {

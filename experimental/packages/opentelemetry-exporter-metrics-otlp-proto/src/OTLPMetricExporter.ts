@@ -16,11 +16,12 @@
 
 import { OTLPMetricExporterOptions } from '@opentelemetry/exporter-metrics-otlp-http';
 import {
-  ServiceClientType,
-  OTLPProtoExporterNodeBase,
-} from '@opentelemetry/otlp-proto-exporter-base';
-import { getEnv, baggageUtils } from '@opentelemetry/core';
-import { ResourceMetrics } from '@opentelemetry/sdk-metrics';
+  defaultOptions,
+  OTLPMetricExporterOptions
+} from '@opentelemetry/exporter-metrics-otlp-http';
+import { ServiceClientType, OTLPProtoExporterNodeBase } from '@opentelemetry/otlp-proto-exporter-base';
+import { getEnv, baggageUtils} from '@opentelemetry/core';
+import { ResourceMetrics} from '@opentelemetry/sdk-metrics';
 import { OTLPMetricExporterBase } from '@opentelemetry/exporter-metrics-otlp-http';
 import {
   OTLPExporterNodeConfigBase,
