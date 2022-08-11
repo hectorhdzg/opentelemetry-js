@@ -28,6 +28,10 @@ import {
   DataPoint,
   Histogram,
 } from '@opentelemetry/sdk-metrics';
+import type {
+  MetricAttributes,
+  MetricAttributeValue
+} from '@opentelemetry/api-metrics';
 import { hrTimeToMilliseconds } from '@opentelemetry/core';
 import { IResource } from '@opentelemetry/resources';
 

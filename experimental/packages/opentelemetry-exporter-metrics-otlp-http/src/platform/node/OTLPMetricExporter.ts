@@ -15,8 +15,8 @@
  */
 
 import { ResourceMetrics } from '@opentelemetry/sdk-metrics';
-import { getEnv, baggageUtils } from '@opentelemetry/core';
-import { OTLPMetricExporterOptions } from '../../OTLPMetricExporterOptions';
+import { getEnv, baggageUtils} from '@opentelemetry/core';
+import { defaultOptions, OTLPMetricExporterOptions } from '../../OTLPMetricExporterOptions';
 import { OTLPMetricExporterBase } from '../../OTLPMetricExporterBase';
 import {
   OTLPExporterNodeBase,

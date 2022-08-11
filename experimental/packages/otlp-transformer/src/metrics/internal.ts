@@ -23,7 +23,7 @@ import {
   Histogram,
   MetricData,
   ResourceMetrics,
-  ScopeMetrics,
+  ScopeMetrics
 } from '@opentelemetry/sdk-metrics';
 import { toAttributes } from '../common/internal';
 import {

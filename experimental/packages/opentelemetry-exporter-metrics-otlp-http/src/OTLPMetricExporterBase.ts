@@ -20,12 +20,9 @@ import {
   AggregationTemporalitySelector,
   InstrumentType,
   PushMetricExporter,
-  ResourceMetrics,
+  ResourceMetrics
 } from '@opentelemetry/sdk-metrics';
-import {
-  AggregationTemporalityPreference,
-  OTLPMetricExporterOptions,
-} from './OTLPMetricExporterOptions';
+import { defaultOptions, OTLPMetricExporterOptions } from './OTLPMetricExporterOptions';
 import { OTLPExporterBase } from '@opentelemetry/otlp-exporter-base';
 import { IExportMetricsServiceRequest } from '@opentelemetry/otlp-transformer';
 import { diag } from '@opentelemetry/api';
