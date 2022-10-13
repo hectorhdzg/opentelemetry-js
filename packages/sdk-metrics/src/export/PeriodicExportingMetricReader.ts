@@ -19,7 +19,8 @@ import {
   internal,
   ExportResultCode,
   globalErrorHandler,
-  unrefTimer,
+  suppressTracing,
+  unrefTimer
 } from '@opentelemetry/core';
 import { MetricReader } from './MetricReader';
 import { PushMetricExporter } from './MetricExporter';
@@ -127,25 +128,22 @@ export class PeriodicExportingMetricReader extends MetricReader {
       );
     }
 
-    const doExport = async () => {
-      const result = await internal._export(this._exporter, resourceMetrics);
-      if (result.code !== ExportResultCode.SUCCESS) {
-        throw new Error(
-          `PeriodicExportingMetricReader: metrics export failed (error ${result.error})`
-        );
-      }
-    };
-
-    // Avoid scheduling a promise to make the behavior more predictable and easier to test
-    if (resourceMetrics.resource.asyncAttributesPending) {
-      resourceMetrics.resource
-        .waitForAsyncAttributes?.()
-        .then(doExport, err =>
-          diag.debug('Error while resolving async portion of resource: ', err)
-        );
-    } else {
-      await doExport();
-    }
+    return new Promise((resolve, reject) => {
+      api.context.with(suppressTracing(api.context.active()), () => {
+        this._exporter.export(resourceMetrics, result => {
+          if (result.code !== ExportResultCode.SUCCESS) {
+            reject(
+              result.error ??
+              new Error(
+                `PeriodicExportingMetricReader: metrics export failed (error ${result.error})`
+              )
+            );
+          } else {
+            resolve();
+          }
+        });
+      });
+    });
   }
 
   protected override onInitialized(): void {
