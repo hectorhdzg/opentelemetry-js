@@ -21,6 +21,7 @@ import {
   createExportLogsServiceRequest,
   ESeverityNumber,
   IExportLogsServiceRequest,
+  UnsignedLong,
 } from '../src';
 import { ReadableLogRecord } from '@opentelemetry/sdk-logs';
 import { SeverityNumber } from '@opentelemetry/api-logs';
@@ -49,10 +50,8 @@ function createExpectedLogJson(useHex: boolean): IExportLogsServiceRequest {
             scope: { name: 'scope_name_1', version: '0.1.0' },
             logRecords: [
               {
-                // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
-                timeUnixNano: 1680253513123241635,
-                // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
-                observedTimeUnixNano: 1680253513123241635,
+                timeUnixNano: new UnsignedLong(-162521437, 391214506),
+                observedTimeUnixNano: new UnsignedLong(584929536, 391976663),
                 severityNumber: ESeverityNumber.SEVERITY_NUMBER_ERROR,
                 severityText: 'error',
                 body: { stringValue: 'some_log_body' },
@@ -105,6 +104,7 @@ describe('Logs', () => {
       };
       const log_fragment_1 = {
         hrTime: [1680253513, 123241635] as HrTime,
+        hrTimeObserved: [1683526948, 965142784] as HrTime,
         attributes: {
           'some-attribute': 'some attribute value',
         },
@@ -119,6 +119,7 @@ describe('Logs', () => {
       };
       const log_fragment_2 = {
         hrTime: [1680253797, 687038506] as HrTime,
+        hrTimeObserved: [1680253797, 687038506] as HrTime,
         attributes: {
           'another-attribute': 'another attribute value',
         },
